@@ -4,7 +4,7 @@ This module retrieves automatically the information about the currently running 
 
 ##Installation
 
-    npm install node-appinfo;
+    npm install --save node-appinfo
 
 ##Usage
 
