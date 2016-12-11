@@ -1,4 +1,4 @@
-"using strict";
+"use strict";
 
 let retrieve = require("./src/retrieve");
 

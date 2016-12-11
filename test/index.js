@@ -1,4 +1,4 @@
-"using strict";
+"use strict";
 
 var expect = require("chai").expect;
 var path = require("path");
