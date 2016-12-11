@@ -2,6 +2,10 @@
 
 This module retrieves automatically the information about the currently running application.
 
+[![Build Status](https://travis-ci.org/slawo/node-appinfo.svg?branch=develop)](https://travis-ci.org/slawo/node-appinfo)
+
+![npm stats](https://nodei.co/npm/node-appinfo.svg)
+
 ##Installation
 
     npm install --save node-appinfo
