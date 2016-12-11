@@ -21,7 +21,11 @@ Provides access to the following app information
  - `description`: the description as set by the app's author
 
 
-Currently this module will try to retrieve data from the `package.json` of the directory from which the main script has been launched.
+Currently this module will try to retrieve data from the `package.json` of the directory in which the main script resides.
+
+##Limitations
+
+If the script is launched with `mocha` or a manager like `pm2` the wrong path will be returned and the manager's application information will be returned.
 
 ##License
 MIT
