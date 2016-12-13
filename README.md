@@ -28,6 +28,11 @@ Currently this module will try to retrieve data from the `package.json` of the d
 
 If the script is launched with `mocha` or a manager like `pm2` the wrong path will be returned and the manager's application information will be returned.
 
+## Changelog
+
+* 0.1.1: documentation, travis, fixes for iojs
+* 0.1.0: start
+
 ##License
 MIT
 
