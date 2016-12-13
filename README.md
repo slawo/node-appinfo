@@ -6,7 +6,7 @@ This npm module retrieves automatically the information about the currently runn
 [![Dependency Status][dependency-image]][dependency-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
-![npm stats](https://nodei.co/npm/node-appinfo.svg)
+[![npm stats][nodei-image]][npmjs-url]
 
 ##Installation
 
@@ -46,3 +46,6 @@ MIT
 
 [snyk-image]: https://snyk.io/test/github/slawo/node-appinfo/develop/badge.svg
 [snyk-url]: https://snyk.io/test/github/slawo/node-appinfo
+
+[nodei-image]: https://nodei.co/npm/node-appinfo.png
+[npmjs-url]: https://www.npmjs.com/package/node-appinfo
