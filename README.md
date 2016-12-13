@@ -4,6 +4,7 @@ This module retrieves automatically the information about the currently running 
 
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][dependency-image]][dependency-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
 
 ![npm stats](https://nodei.co/npm/node-appinfo.svg)
 
@@ -42,3 +43,6 @@ MIT
 
 [dependency-image]: https://img.shields.io/gemnasium/slawo/node-appinfo.svg
 [dependency-url]: https://gemnasium.com/slawo/node-appinfo
+
+[snyk-image]: https://snyk.io/test/npm/node-appinfo/develop/badge.svg
+[snyk-url]: https://snyk.io/test/npm/node-appinfo
