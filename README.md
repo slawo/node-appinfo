@@ -1,6 +1,6 @@
 #node-appinfo
 
-This module retrieves automatically the information about the currently running application.
+This npm module retrieves automatically the information about the currently running node application.
 
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][dependency-image]][dependency-url]
@@ -44,5 +44,5 @@ MIT
 [dependency-image]: https://img.shields.io/gemnasium/slawo/node-appinfo.svg
 [dependency-url]: https://gemnasium.com/slawo/node-appinfo
 
-[snyk-image]: https://snyk.io/test/npm/node-appinfo/develop/badge.svg
-[snyk-url]: https://snyk.io/test/npm/node-appinfo
+[snyk-image]: https://snyk.io/test/github/slawo/node-appinfo/develop/badge.svg
+[snyk-url]: https://snyk.io/test/github/slawo/node-appinfo
