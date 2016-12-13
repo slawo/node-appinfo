@@ -1,4 +1,5 @@
-"using strict";
+"use strict";
+
 /**
  * @fileOverview Tool functions.
  * @version 0.1.0

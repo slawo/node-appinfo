@@ -1,6 +1,6 @@
 {
   "name": "node-appinfo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Retrieves for you the information about the currently running application.",
   "keywords": [
     "appInfo",
@@ -10,6 +10,7 @@
   ],
   "main": "index.js",
   "scripts": {
+    "test-travis": "npm run test",
     "test": "mocha --reporter spec"
   },
   "author": "Slawomir CALUCH",
@@ -26,5 +27,7 @@
     "eslint": "^3.12.0",
     "eslint-plugin-mocha": "^4.7.0",
     "mocha": "^3.2.0"
+  },
+  "dependencies": {
   }
 }
