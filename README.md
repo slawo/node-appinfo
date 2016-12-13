@@ -2,7 +2,8 @@
 
 This module retrieves automatically the information about the currently running application.
 
-[![Build Status](https://travis-ci.org/slawo/node-appinfo.svg?branch=develop)](https://travis-ci.org/slawo/node-appinfo)
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][dependency-image]][dependency-url]
 
 ![npm stats](https://nodei.co/npm/node-appinfo.svg)
 
@@ -29,3 +30,10 @@ If the script is launched with `mocha` or a manager like `pm2` the wrong path wi
 
 ##License
 MIT
+
+
+[travis-image]: https://travis-ci.org/slawo/node-appinfo.svg?branch=develop
+[travis-url]: https://travis-ci.org/slawo/node-appinfo
+
+[dependency-image]: https://img.shields.io/gemnasium/slawo/node-appinfo.svg
+[dependency-url]: https://gemnasium.com/slawo/node-appinfo
