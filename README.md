@@ -1,10 +1,12 @@
 #node-appinfo
 
-This module retrieves automatically the information about the currently running application.
+This npm module retrieves automatically the information about the currently running node application.
 
-[![Build Status](https://travis-ci.org/slawo/node-appinfo.svg?branch=develop)](https://travis-ci.org/slawo/node-appinfo)
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][dependency-image]][dependency-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
 
-![npm stats](https://nodei.co/npm/node-appinfo.svg)
+[![npm stats][nodei-image]][npmjs-url]
 
 ##Installation
 
@@ -27,5 +29,23 @@ Currently this module will try to retrieve data from the `package.json` of the d
 
 If the script is launched with `mocha` or a manager like `pm2` the wrong path will be returned and the manager's application information will be returned.
 
+## Changelog
+
+* 0.1.1: documentation, travis, fixes for iojs
+* 0.1.0: start
+
 ##License
 MIT
+
+
+[travis-image]: https://travis-ci.org/slawo/node-appinfo.svg?branch=develop
+[travis-url]: https://travis-ci.org/slawo/node-appinfo
+
+[dependency-image]: https://img.shields.io/gemnasium/slawo/node-appinfo.svg
+[dependency-url]: https://gemnasium.com/slawo/node-appinfo
+
+[snyk-image]: https://snyk.io/test/github/slawo/node-appinfo/develop/badge.svg
+[snyk-url]: https://snyk.io/test/github/slawo/node-appinfo
+
+[nodei-image]: https://nodei.co/npm/node-appinfo.png
+[npmjs-url]: https://www.npmjs.com/package/node-appinfo
