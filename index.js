@@ -10,11 +10,18 @@ let appInfo = module.exports = {};
 let packagePath = retrieve.findPackageJson();
 if (packagePath) {
   let packageData = require(packagePath);
+  
   appInfo.name = packageData.name;
   appInfo.version = packageData.version;
+
   if(packageData.description) {
     appInfo.description = packageData.description;
   }
+
+  if(packageData.author) {
+    appInfo.author = packageData.author;
+  }
+
   appInfo.toString = function () {
     return this.name + " " + appInfo.version;
   };

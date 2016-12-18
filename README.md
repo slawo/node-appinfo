@@ -38,13 +38,13 @@ If the script is launched with `mocha` or a manager like `pm2` the wrong path wi
 MIT
 
 
-[travis-image]: https://travis-ci.org/slawo/node-appinfo.svg?branch=develop
+[travis-image]: https://travis-ci.org/slawo/node-appinfo.svg?branch=master
 [travis-url]: https://travis-ci.org/slawo/node-appinfo
 
 [dependency-image]: https://img.shields.io/gemnasium/slawo/node-appinfo.svg
 [dependency-url]: https://gemnasium.com/slawo/node-appinfo
 
-[snyk-image]: https://snyk.io/test/github/slawo/node-appinfo/develop/badge.svg
+[snyk-image]: https://snyk.io/test/github/slawo/node-appinfo/master/badge.svg
 [snyk-url]: https://snyk.io/test/github/slawo/node-appinfo
 
 [nodei-image]: https://nodei.co/npm/node-appinfo.png
