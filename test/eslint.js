@@ -4,7 +4,8 @@ var paths = [
   "index.js",
   "src",
 ];
-  
+
+// avoids linting on io.js
 if((typeof process !== "undefined")
 && (process.release.name.search(/io.js/) === -1)) {
   var lint = require("mocha-eslint");
