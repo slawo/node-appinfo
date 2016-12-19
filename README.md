@@ -1,31 +1,49 @@
-#node-appinfo
+# node-appinfo
 
-This npm module retrieves automatically the information about the currently running node application.
+This npm module can automatically retrieve the information about the currently running node application.
 
+[![License][npm-license-image]][npmjs-url]
+[![Latest version on npm][npm-version-image]][npmjs-url]
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][dependency-image]][dependency-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
-[![npm stats][nodei-image]][npmjs-url]
+[![bitHound Overall Score][bithound-score-img]][bithound-url]
+[![bitHound Dependencies][bithound-dependencies-img]][bithound-dependencies-url]
+[![bitHound Dev Dependencies][bithound-devDependencies-img]][bithound-dependencies-url]
 
-##Installation
+## Installation
 
     npm install --save node-appinfo
 
-##Usage
+## Usage
 
-    var appInfo = require("node-appinfo");
+    var appInfo = require("node-appinfo")();
 
-Provides access to the following app information
+Provides access to the following app information:
 
  - `name`: the application name
  - `version`: the version of the current application
+ - `author`: the author's name
  - `description`: the description as set by the app's author
 
+### setting info manually
+You can set the path to the `package.json` file manually:
+
+    var appInfo = require("node-appinfo")(__dirname);
+    // if called from the project's root folder it wil load
+    // data from the package.json
+
+You can also send data to be manually set.
+
+    var appInfo = require("node-appinfo")({
+        name : "app1-manual"
+        version : (require("./package.json").version)
+    });
 
 Currently this module will try to retrieve data from the `package.json` of the directory in which the main script resides.
 
-##Limitations
+## Limitations
 
 If the script is launched with `mocha` or a manager like `pm2` the wrong path will be returned and the manager's application information will be returned.
 
@@ -39,7 +57,7 @@ If the script is launched with `mocha` or a manager like `pm2` the wrong path wi
 * 0.1.1: documentation, travis, fixes for iojs
 * 0.1.0: start
 
-##License
+## License
 The MIT License (MIT)
 Copyright (c) 2016 Slawomir CALUCH
 
@@ -61,3 +79,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 [nodei-image]: https://nodei.co/npm/node-appinfo.png
 [npmjs-url]: https://www.npmjs.com/package/node-appinfo
+
+[npm-license-image]: https://img.shields.io/npm/l/node-appinfo.svg
+[npm-version-image]: https://img.shields.io/npm/v/node-appinfo.svg
+
+[bithound-score-img]: https://www.bithound.io/github/slawo/node-appinfo/badges/score.svg
+[bithound-url]: https://www.bithound.io/github/slawo/node-appinfo
+
+[bithound-dependencies-img]: https://www.bithound.io/github/slawo/node-appinfo/badges/dependencies.svg
+[bithound-dependencies-url]: https://www.bithound.io/github/slawo/node-appinfo/master/dependencies/npm
+
+[bithound-devDependencies-img]: https://www.bithound.io/github/slawo/node-appinfo/badges/devDependencies.svg
