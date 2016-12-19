@@ -1,62 +1,49 @@
 "use strict";
 
+let ListPackageFiles = require("./list-package-files");
+let logger = require("./logger");
+
 /**
- * @fileOverview Tool functions.
- * @version 0.1.0
+ * takes the value passed to the main function and tries to retrieve
+ * the package.json content out of it.
  */
+module.exports.normalizeData = function (value) {
+  if ("undefined" === typeof value) {
+    let listPackageFiles = new ListPackageFiles();
+    value = listPackageFiles.findPackageJson();
+  }
 
-let fs = require("fs");
-let path = require("path");
+  if ("string" === typeof value) {
+    value = require(value);
+  }
 
-module.exports = {
-  /**
-   * Retrieves the app's root folder.'
-   * @function getRootName
-   * @param {string} 
-   */
-  getRootName:getRootName,
-  /**
-   * Looks for a "package.json" file starting from the given app path.'
-   * Tries to determin from where to start if currentPath is not passed.
-   * @function findPackageJson
-   * @param {string} [currentPath]
-   */
-  findPackageJson:findPackageJson,
+  if ("object" === typeof value) {
+    return value;
+  }
+
+  return;
 };
 
-function getRootName() {
-  let root;
-  if (require.main && require.main.filename) {
-    root = path.dirname(require.main.filename);
-  }
-
-  //Hack for mocha
-  if (root && root.endsWith("mocha"+path.sep+"bin")) {
-    root = process.cwd();
+module.exports.copyPackageData = function(packageData, appInfo) {
+  logger.log("copyPackageData", packageData, appInfo);
+  if ("undefined" === typeof appInfo) {
+    appInfo = {};
   }
   
-  if(!root) {
-    root = path.dirname(process.argv[1]);
+  appInfo.name = packageData.name;
+  appInfo.version = packageData.version;
+
+  if(packageData.description) {
+    appInfo.description = packageData.description;
   }
 
-  return root;
-}
-
-function findPackageJson(currentPath)
-{
-  if (!currentPath) {
-    currentPath = getRootName();
+  if(packageData.author) {
+    appInfo.author = packageData.author;
   }
 
-  let packagePath = path.join(currentPath, "package.json");
+  appInfo.toString = function () {
+    return this.name + " " + appInfo.version;
+  };
 
-  if (fs.existsSync(packagePath)) {
-    return packagePath;
-  } else {
-    let newPath = path.join(currentPath, "..");
-    if (newPath != currentPath) {
-      return findPackageJson(newPath);
-    }
-    return;
-  }
-}
+  return appInfo;
+};
