@@ -31,6 +31,10 @@ If the script is launched with `mocha` or a manager like `pm2` the wrong path wi
 
 ## Changelog
 
+* 0.2.0: Rewrite
+  - Improves the detection of the package.json
+  - Allows the use of a given path to retrieve the package.json
+  - Allows setting-up the application information manually.
 * 0.1.2: returns the author in the app information
 * 0.1.1: documentation, travis, fixes for iojs
 * 0.1.0: start
