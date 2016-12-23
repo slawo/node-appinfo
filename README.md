@@ -49,6 +49,7 @@ If the script is launched with `mocha` or a manager like `pm2` the wrong path wi
 
 ## Changelog
 
+* 0.2.3: Fixes tests.
 * 0.2.2: Improves the detection of the current application
   - Relies more on cwd and require.main for app detection.
   - adds multiple testing scenarios.

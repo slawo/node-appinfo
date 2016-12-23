@@ -1,6 +1,6 @@
 {
   "name": "node-appinfo",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Can automatically retrieve the information about the currently running node application.",
   "keywords": [
     "appInfo",
@@ -26,6 +26,7 @@
     "chai": "^3.5.0",
     "eslint": "^3.12.0",
     "eslint-plugin-mocha": "^4.7.0",
+    "fs-extra": "^1.0.0",
     "mocha": "^3.2.0",
     "mocha-eslint": "^3.0.1"
   },
@@ -37,7 +38,6 @@
     "test"
   ],
   "engines": {
-    "node": ">=4.0",
-    "iojs": ">=3.3"
+    "node": ">=4.0"
   }
 }

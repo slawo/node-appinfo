@@ -1,12 +1,18 @@
 "use strict";
 
+if(!require("./can-run-scenarios")) {
+
+  module.exports = function (scenarioName) {}
+
+  return;
+}
+
 var expect = require("chai").expect;
 
 var os = require("os");
 var fs = require("fs-extra");
 var path = require("path");
 
-var sys = require("sys");
 var exec = require("child_process").exec;
 var mkdirp = require("mkdirp");
 
@@ -158,11 +164,11 @@ module.exports = function (scenarioName) {
 
 var deleteFolderRecursive = function(path) {
   if( fs.existsSync(path) ) {
-    fs.readdirSync(path).forEach(function(file,index){
+    fs.readdirSync(path).forEach(function(file){
       var curPath = path + "/" + file;
-      if(fs.lstatSync(curPath).isDirectory()) { // recurse
+      if(fs.lstatSync(curPath).isDirectory()) {
         deleteFolderRecursive(curPath);
-      } else { // delete file
+      } else {
         fs.unlinkSync(curPath);
       }
     });
