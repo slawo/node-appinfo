@@ -1,0 +1,17 @@
+{
+  "name": "app3",
+  "version": "1.0.0",
+  "description": "Test application 3.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Slawomir CALUCH",
+  "dependencies": {
+    "node-appinfo": "^0.2.0"
+  },
+  "engines": {
+    "node": ">=4.0",
+    "iojs": ">=3.3"
+  }
+}
