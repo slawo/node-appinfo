@@ -34,8 +34,6 @@ module.exports = function (scenarioName) {
   var modulesPath = path.join(destPath, module_destination,  "node_modules");
   var destModulePath = path.join(modulesPath, "node-appinfo");
 
-  console.log(destModulePath);
-
   describe("Run Scenario: " + scenario.name + ".", function() {
   
     before("Has created the folder.", function(done) {
@@ -118,7 +116,6 @@ module.exports = function (scenarioName) {
               var jsonStart = stdout.indexOf("{");
               var appJson = stdout.substring(jsonStart);
 
-              console.log("stdout: ", stdout);
               logger.log("JSON.parse: ", appJson);
               var appData = JSON.parse(appJson);
               logger.log(appData);
