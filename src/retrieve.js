@@ -1,5 +1,7 @@
 "use strict";
 
+let fs = require("fs");
+let path = require("path");
 let ListPackageFiles = require("./list-package-files");
 let logger = require("./logger");
 
@@ -14,7 +16,11 @@ module.exports.normalizeData = function (value) {
   }
 
   if ("string" === typeof value) {
-    value = require(value);
+    let folderPath = getRootFolderFromString(value);
+    if (folderPath) {
+      let packagePath = path.join(folderPath, "package.json");
+      value = JSON.parse(fs.readFileSync(packagePath));
+    }
   }
 
   if ("object" === typeof value) {
@@ -46,4 +52,19 @@ module.exports.copyPackageData = function(packageData, appInfo) {
   };
 
   return appInfo;
+};
+
+let getRootFolderFromString = function (value) {
+  let filepath = path.join(value, ".");
+  logger.log(__filename, "getRootFolderFromString", filepath);
+  try {
+    var stat = fs.lstatSync(filepath);
+    if (stat.isDirectory()) {
+      return filepath;
+    } else if (stat.isFile()) {
+      return getRootFolderFromString(path.dirname(filepath));
+    }
+  } catch(e) {
+    logger.error(e);
+  }
 };
