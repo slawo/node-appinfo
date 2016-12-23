@@ -1,5 +1,12 @@
 "use strict";
 
+if(!require("./can-run-scenarios")) {
+
+  module.exports = function (scenarioName) {}
+
+  return;
+}
+
 var expect = require("chai").expect;
 
 var os = require("os");
