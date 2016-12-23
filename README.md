@@ -49,6 +49,9 @@ If the script is launched with `mocha` or a manager like `pm2` the wrong path wi
 
 ## Changelog
 
+* 0.2.2: Improves the detection of the current application
+  - Relies more on cwd and require.main for app detection.
+  - adds multiple testing scenarios.
 * 0.2.1: Fixes a major bug when a folder path was passed to the module
 * 0.2.0: Rewrite
   - Improves the detection of the package.json

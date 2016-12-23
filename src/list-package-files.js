@@ -46,24 +46,47 @@ module.exports = function ListPackageFiles (applicationPath) {
 
 function findPackageJsonFromDefaultSources () {
   let sources = [];
+  var cwd;
+  var main;
+  if ("undefined" !== typeof process && process) {
+    cwd = process.cwd();
+  }
+  if (require.main.filename) {
+    main = path.dirname(require.main.filename);
+  }
+
+  function add (entry) {
+    var res = sources.find(function (obj) {
+      return obj.path === entry.path;
+    });
+
+    if (res) {
+      res.value += entry.value;
+      //console.log(res);
+    }
+    else {
+      sources.push(entry);
+      //console.log(entry);
+    }
+  }
   if("undefined" !==  typeof __dirname) {
     let fromLocal = listPackageJson(__dirname);
     if (fromLocal.length === 1) {
       //The package is installed globaly 
       //or is is being tested on its own
-      sources.push({path:fromLocal[0], value : 10});
+      add({path:fromLocal[0], value : 10});
     }
     else if (fromLocal.length === 2) {
       //Probably installed in an application
-      sources.push({path:fromLocal[0], value : 5});
-      sources.push({path:fromLocal[1], value : 50});
+      add({path:fromLocal[0], value : 5});
+      add({path:fromLocal[1], value : 30});
     }
     else if (fromLocal.length > 2) {
       //Probably installed in an application hierarchy
-      sources.push({path:fromLocal[0], value : 5});
-      sources.push({path:fromLocal[1], value : 15});
+      add({path:fromLocal[0], value : 5});
+      add({path:fromLocal[1], value : 15});
       for (let i = 2; i < fromLocal.length; ++i) {
-        sources.push({path:fromLocal[i], value : 15/i});
+        add({path:fromLocal[i], value : 15/i});
       }
     }
   }
@@ -74,16 +97,35 @@ function findPackageJsonFromDefaultSources () {
 
     if (fromMain.length === 1) {
       //either the true application or a launcher (ie mocha)
-      sources.push({path:fromMain[0], value : 10});
+      add({path:fromMain[0], value : 12});
     }
     else if (fromMain.length > 1) {
       //Probably installed in an application hierarchy
-      sources.push({path:fromMain[0], value : 12});
+      add({path:fromMain[0], value : 10});
       for (let i = 1; i < fromMain.length; ++i) {
-        sources.push({path:fromMain[i], value : 12/i});
+        add({path:fromMain[i], value : 10/(i+1)});
       }
     }
   }
+
+  sources.forEach(function (entry) {
+    var dirname = path.dirname(entry.path);
+    if (cwd) {
+      if (entry.path.startsWith(cwd)) {
+        entry.value *= 1.5;
+      }
+      if (cwd.startsWith(dirname)) {
+        entry.value *= 2;
+        if (main.startsWith(dirname)) {
+          entry.value *= 2;
+        }
+      }
+    }
+    if (main && (entry.path.startsWith(main) || main.startsWith(dirname))) {
+      //entry.value *= 4;
+    }
+  });
+
   return sources;
 }
 
